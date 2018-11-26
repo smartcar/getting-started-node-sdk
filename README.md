@@ -14,6 +14,12 @@ $ export CLIENT_SECRET=<your-client-secret>
 $ export REDIRECT_URI=<your-redirect-uri>
 ```
 
+Make sure you have cloned this repo -
+```bash
+$ git clone git@github.com:smartcar/getting-started-node-sdk.git
+$ cd getting-started-node-sdk
+```
+
 To install the required dependencies and run this Node app -
 ```bash
 $ npm install
@@ -24,3 +30,5 @@ Once your server is up and running, you can authenticate your vehicle. In our cu
 
 ## Next Steps
 Read our [API Docs](https://smartcar.com/docs) to learn what else you can do with Smartcar's API.
+
+Learn more about the [Node SDK](https://github.com/smartcar/node-sdk) and how it can be used.
