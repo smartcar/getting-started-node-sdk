@@ -5,7 +5,7 @@ This kit contains a simple web application that displays car information using S
 ## Instructions
 Before we get started, create an application on Smartcar's Developer Dashboard to get your API keys.
 
-**Note:** On the dashboard, you will want to set your `redirect_uri` as `http://localhost:8000/callback`.
+**Note:** On the dashboard, you will want to set your `redirect_uri` as `http://localhost:8000/exchange`.
 
 Then, we can set these as environment variables -
 ```bash
@@ -17,7 +17,7 @@ $ export REDIRECT_URI=<your-redirect-uri>
 Make sure you have cloned this repo -
 ```bash
 $ git clone git@github.com:smartcar/getting-started-node-sdk.git
-$ cd getting-started-node-sdk
+$ cd getting-started-node-sdk/app
 ```
 
 To install the required dependencies and run this Node app -
@@ -26,7 +26,7 @@ $ npm install
 $ node index.js
 ```
 
-Once your server is up and running, you can authenticate your vehicle. In our current set up, we are using Smartcar's [test mode](https://smartcar.com), so you can log in with any username and password. To authenticate, navigate to `http://localhost:8000`. Once you have authenticated, go to `http://localhost:8000/vehicle` to see your vehicle information.
+Once your server is up and running, you can authenticate your vehicle. In our current set up, we are using Smartcar's [test mode](https://smartcar.com), so you can log in with any username and password. To authenticate, navigate to `http://localhost:8000/login`. Once you have authenticated, go to `http://localhost:8000/vehicle` to see your vehicle information.
 
 ## Next Steps
 Read our [API Docs](https://smartcar.com/docs) to learn what else you can do with Smartcar's API.

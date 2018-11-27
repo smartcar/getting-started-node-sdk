@@ -18,12 +18,12 @@ const client = new smartcar.AuthClient({
 // global variable to save our accessToken
 let access;
 
-app.get('/', function(req, res) {
+app.get('/login', function(req, res) {
   const link = client.getAuthUrl();
   res.redirect(link);
 });
 
-app.get('/callback', function(req, res) {
+app.get('/exchange', function(req, res) {
   const code = req.query.code;
 
   return client.exchangeCode(code)
