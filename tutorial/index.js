@@ -14,7 +14,7 @@ const port = 8000;
 let access;
 
 app.get('/login', function(req, res) {
-// TODO: Authorization Step 1b: Launch Smartcar authentication dialog
+  // TODO: Authorization Step 1b: Launch Smartcar authentication dialog
 });
 
 app.get('/exchange', function(req, res) {
