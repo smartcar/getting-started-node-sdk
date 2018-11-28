@@ -11,7 +11,7 @@ const port = 8000;
 const client = new smartcar.AuthClient({
   clientId: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  redirectUri: process.env.REDIRECT_URI,
+  redirectUri: 'http://localhost:8000/exchange',
   scope: ['read_vehicle_info'],
   testMode: true,
 });
