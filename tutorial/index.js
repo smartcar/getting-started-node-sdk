@@ -8,13 +8,13 @@ const app = express()
   .use(cors());
 const port = 8000;
 
-// TODO: Authorization Step 1: Launch Smartcar authentication dialog
+// TODO: Authorization Step 1a: Launch Smartcar authentication dialog
 
 // global variable to save our accessToken
 let access;
 
 app.get('/login', function(req, res) {
-// TODO: Authorization Step 1: Launch Smartcar authentication dialog
+// TODO: Authorization Step 1b: Launch Smartcar authentication dialog
 });
 
 app.get('/exchange', function(req, res) {
