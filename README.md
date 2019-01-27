@@ -26,9 +26,9 @@ $ npm install
 $ node index.js
 ```
 
-Once your server is up and running, you can authenticate your vehicle. In our current set up, we are using Smartcar's [test mode](https://smartcar.com), so you can log in with any username and password. To authenticate, navigate to `http://localhost:8000/login`. Once you have authenticated, go to `http://localhost:8000/vehicle` to see your vehicle information.
+Once your server is up and running, you can authenticate your vehicle. In our current set up, we are using Smartcar's [test mode](https://smartcar.com/docs/guides/testing/), so you can log in with any username and password. To authenticate, navigate to `http://localhost:8000/login`. Once you have authenticated, go to `http://localhost:8000/vehicle` to see your vehicle information.
 
 ## Next Steps
-Read our [API Docs](https://smartcar.com/docs) to learn what else you can do with Smartcar's API.
+Read our [API Docs](https://smartcar.com/docs/api) to learn what else you can do with Smartcar's API.
 
 Learn more about the [Node SDK](https://github.com/smartcar/node-sdk) and how it can be used.
