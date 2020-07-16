@@ -23,8 +23,9 @@ $ cd getting-started-node-sdk/app
 To install the required dependencies and run this Node app -
 ```bash
 $ npm install
-$ node index.js
+$ npm start
 ```
+`note` The server will automatically restart and load any code changes you do. 
 
 Once your server is up and running, you can authenticate your vehicle. In our current set up, we are using Smartcar's [test mode](https://smartcar.com/docs/guides/testing/), so you can log in with any username and password. To authenticate, navigate to `http://localhost:8000/login`. Once you have authenticated, go to `http://localhost:8000/vehicle` to see your vehicle information.
 
