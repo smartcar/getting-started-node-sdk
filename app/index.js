@@ -9,10 +9,9 @@ const app = express()
 const port = 8000;
 
 const client = new smartcar.AuthClient({
-  clientId: process.env.CLIENT_ID,
-  clientSecret: process.env.CLIENT_SECRET,
-  redirectUri: process.env.REDIRECT_URI,
-  scope: ['required:read_vehicle_info'],
+  clientId: process.env.SMARTCAR_CLIENT_ID,
+  clientSecret: process.env.SMARTCAR_CLIENT_SECRET,
+  redirectUri: process.env.SMARTCAR_REDIRECT_URI,
   testMode: true,
 });
 
@@ -20,45 +19,35 @@ const client = new smartcar.AuthClient({
 let access;
 
 app.get('/login', function(req, res) {
-  const link = client.getAuthUrl();
+  const link = client.getAuthUrl(['required:read_vehicle_info']);
   res.redirect(link);
 });
 
-app.get('/exchange', function(req, res) {
+app.get('/exchange', async function(req, res) {
   const code = req.query.code;
-
-  return client.exchangeCode(code)
-    .then(function(_access) {
-      // in a production app you'll want to store this in some kind of persistent storage
-      access = _access;
-
-      res.sendStatus(200);
-    });
+  // in a production app you'll want to store this in some kind of persistent storage
+  access = await client.exchangeCode(code)
+  res.sendStatus(200);
 });
 
-app.get('/vehicle', function(req, res) {
-  return smartcar.getVehicleIds(access.accessToken)
-    .then(function(data) {
-      // the list of vehicle ids
-      return data.vehicles;
-    })
-    .then(function(vehicleIds) {
-      // instantiate the first vehicle in the vehicle id list
-      const vehicle = new smartcar.Vehicle(vehicleIds[0], access.accessToken);
-
-      return vehicle.info();
-    })
-    .then(function(info) {
-      console.log(info);
-      // {
-      //   "id": "36ab27d0-fd9d-4455-823a-ce30af709ffc",
-      //   "make": "TESLA",
-      //   "model": "Model S",
-      //   "year": 2014
-      // }
-
-      res.json(info);
-    });
+app.get('/vehicle', async function(req, res) {
+  // get the vehicle ids
+  const vehicles = await smartcar.getVehicles(access.accessToken);
+  // instantiate first vehicle in vehicle list
+  const vehicle = new smartcar.Vehicle(vehicles.vehicles[0], access.accessToken);
+  // get identifying information about a vehicle
+  const attributes = await vehicle.attributes()
+  console.log(attributes);
+  // {
+  //   "id": "36ab27d0-fd9d-4455-823a-ce30af709ffc",
+  //   "make": "TESLA",
+  //   "model": "Model S",
+  //   "year": 2014
+  //   "meta": {
+  //     "requestId": "ada7207c-3c0a-4027-a47f-6215ce6f7b93"
+  //   }
+  // }
+  res.json(attributes);
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
