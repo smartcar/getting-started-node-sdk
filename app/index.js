@@ -12,7 +12,7 @@ const client = new smartcar.AuthClient({
   clientId: process.env.SMARTCAR_CLIENT_ID,
   clientSecret: process.env.SMARTCAR_CLIENT_SECRET,
   redirectUri: process.env.SMARTCAR_REDIRECT_URI,
-  testMode: true,
+  mode: "test",
 });
 
 // global variable to save our accessToken
@@ -27,7 +27,7 @@ app.get('/exchange', async function(req, res) {
   const code = req.query.code;
   // in a production app you'll want to store this in some kind of persistent storage
   access = await client.exchangeCode(code)
-  res.sendStatus(200);
+  res.redirect('/vehicle');
 });
 
 app.get('/vehicle', async function(req, res) {

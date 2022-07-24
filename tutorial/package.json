@@ -6,7 +6,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.16.3",
-    "smartcar": "^9.1.0"
+    "smartcar": "^9.2.0"
   },
   "engines": {
     "node": ">=14.4.0",
