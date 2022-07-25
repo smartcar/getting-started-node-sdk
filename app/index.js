@@ -12,7 +12,7 @@ const client = new smartcar.AuthClient({
   clientId: process.env.SMARTCAR_CLIENT_ID,
   clientSecret: process.env.SMARTCAR_CLIENT_SECRET,
   redirectUri: process.env.SMARTCAR_REDIRECT_URI,
-  mode: "test",
+  mode: 'test',
 });
 
 // global variable to save our accessToken
